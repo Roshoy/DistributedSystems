@@ -1,0 +1,2 @@
+Nale¿y przez NuGet Manager dodaæ zeroc.ice.net, zeroc.icebuilder.msbuild, sharprompt
+Usuniête, bo za du¿o miejsca zajmowa³y

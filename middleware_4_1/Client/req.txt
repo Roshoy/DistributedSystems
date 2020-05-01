@@ -1,0 +1,2 @@
+Nale¿y przez NuGet Manager dodaæ grpc, grpc.tools, google.protobuf
+Usuniête, bo za du¿o miejsca zajmowa³y

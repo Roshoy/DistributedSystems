@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package tutorial;
+
+option java_multiple_files = true;
+option java_package = "sr.proto";
+option java_outer_classname = "NewsMessages";
+
+enum ArticleType{
+  SPORTS = 0;
+  POLITICS = 1;
+  SCIENCE = 2;
+  CULTURE = 3;
+}
+
+message NewsResponse {
+  string title = 1;
+  string content = 2;
+  string author = 3;
+
+  message Date {
+    int32 day = 1;
+    int32 month = 2;
+    int32 year = 3;
+  }
+
+  Date date = 4;
+  repeated string tags = 5;
+  ArticleType type = 6;
+}
+
+message NewsRequest {
+  string searchingTag = 1;
+  ArticleType type = 2;
+  ClientName clientId = 3;
+}
+
+message ClientName {
+  string name = 1;
+}
+
+service NewsProvider{
+  rpc subscribe (NewsRequest) returns (stream NewsResponse){}
+  rpc closeClient (ClientName) returns (ClientName){}
+  rpc openClient (ClientName) returns (stream NewsRequest){}
+}
+
